@@ -16,49 +16,40 @@ let StudentService = class StudentService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async create(data) {
-        const studentExists = await this.prisma.student.findFirst({
-            where: {
-                cpf: data.cpf
-            }
+    async student(studentWhereUniqueInput) {
+        return this.prisma.student.findUnique({
+            where: studentWhereUniqueInput,
         });
-        if (studentExists) {
-            throw new Error('Student already exists');
-        }
-        const student = await this.prisma.student.create({
+    }
+    async students(params) {
+        const { skip, take, cursor, where, orderBy } = params;
+        return this.prisma.student.findMany({
+            skip,
+            take,
+            cursor,
+            where,
+            orderBy,
+        });
+    }
+    async createStudent(data) {
+        return this.prisma.student.create({
             data,
         });
-        return student;
+    }
+    async updateUser(params) {
+        const { where, data } = params;
+        return this.prisma.student.update({
+            data,
+            where,
+        });
+    }
+    async deleteStudent(where) {
+        return this.prisma.student.delete({
+            where,
+        });
     }
     async findAll() {
         return this.prisma.student.findMany();
-    }
-    async update(id, data) {
-        const studentExists = await this.prisma.student.findUnique({
-            where: {
-                id
-            }
-        });
-        if (!studentExists) {
-            throw new Error('Student not exists');
-        }
-        return await this.prisma.student.update({
-            where: { id },
-            data,
-        });
-    }
-    async delete(id) {
-        const studentExists = await this.prisma.student.findUnique({
-            where: {
-                id
-            }
-        });
-        if (!studentExists) {
-            throw new Error('Student not exists');
-        }
-        return await this.prisma.student.delete({
-            where: { id },
-        });
     }
 };
 StudentService = __decorate([

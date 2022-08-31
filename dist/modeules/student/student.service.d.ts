@@ -1,10 +1,21 @@
 import { PrismaService } from '../../database/PrismaService';
-import { StudentDTO } from './student.dto';
+import { Prisma, Student } from '@prisma/client';
 export declare class StudentService {
     private prisma;
     constructor(prisma: PrismaService);
-    create(data: StudentDTO): Promise<import(".prisma/client").Student>;
-    findAll(): Promise<import(".prisma/client").Student[]>;
-    update(id: number, data: StudentDTO): Promise<import(".prisma/client").Student>;
-    delete(id: number): Promise<import(".prisma/client").Student>;
+    student(studentWhereUniqueInput: Prisma.StudentWhereUniqueInput): Promise<Student | null>;
+    students(params: {
+        skip?: number;
+        take?: number;
+        cursor?: Prisma.StudentWhereUniqueInput;
+        where?: Prisma.StudentWhereInput;
+        orderBy?: Prisma.StudentOrderByWithRelationInput;
+    }): Promise<Student[]>;
+    createStudent(data: Prisma.StudentCreateInput): Promise<Student>;
+    updateUser(params: {
+        where: Prisma.StudentWhereUniqueInput;
+        data: Prisma.StudentUpdateInput;
+    }): Promise<Student>;
+    deleteStudent(where: Prisma.StudentWhereUniqueInput): Promise<Student>;
+    findAll(): Promise<Student[]>;
 }

@@ -11,6 +11,17 @@ datasource db {
 }
 
 
+model Event {
+  id        Int      @id @default(autoincrement())
+  title      String
+  location  String
+  date      DateTime
+  capacity Int
+  filled Int
+
+  @@map("events") // This is the table name in the database
+}
+
 model Student {
   id Int @id @default(autoincrement())
   name String
@@ -19,5 +30,18 @@ model Student {
   email String
   events String
 
-  @@map("students") // This is the table name in the database
+  @@map("students") 
+}
+
+model School {
+  id Int @id @default(autoincrement())
+  name String
+  name_res String
+  cpf_res String
+  num_students Int
+  password String
+  email_res String
+  events String
+
+  @@map("schools") 
 }
