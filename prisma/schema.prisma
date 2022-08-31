@@ -12,11 +12,10 @@ datasource db {
 
 
 model Event {
-  id        Int      @id @default(autoincrement())
-  title      String
-  location  String
-  // date String
-  date      DateTime @default(now())
+  id Int @id @default(autoincrement())
+  title String
+  location String
+  date DateTime @default(now())
   capacity Int
   filled Int
 
@@ -30,6 +29,7 @@ model Student {
   password String
   email String
   events String
+  // events Event[]
 
   @@map("students") 
 }

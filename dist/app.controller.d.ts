@@ -29,7 +29,7 @@ export declare class AppController {
     createEvent(eventData: {
         title: string;
         location: string;
-        date: Date;
+        date?: Date;
         capacity: number;
         filled: number;
     }): Promise<EventModel>;

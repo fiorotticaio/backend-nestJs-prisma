@@ -37,6 +37,11 @@ export class AppController {
   ): Promise<StudentModel> {
     return this.studentService.createStudent(studentData);
   }
+
+  // @Get('student/:id')
+  // async getStudentEvents(@Param('id') id: number): Promise<StudentModel> {
+  //   return this.studentService.getStudentEvents(id);
+  // }
     
 
   /*=== Schools ===*/
@@ -61,7 +66,7 @@ export class AppController {
     @Body() eventData: {
       title: string,
       location: string,
-      date: Date,
+      date?: Date,
       capacity: number,
       filled: number,
     },

@@ -38,6 +38,13 @@ export class StudentService {
         });
     }
 
+    // async getStudentEvents(studentId: number): Promise<Student> {
+    //     return this.prisma.student.findUnique({
+    //         where: { id: studentId },
+    //         include: { events: true },
+    //     });
+    // }
+
     async updateStudent(params: {
         where: Prisma.StudentWhereUniqueInput;
         data: Prisma.StudentUpdateInput;

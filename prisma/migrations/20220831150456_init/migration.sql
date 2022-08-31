@@ -3,7 +3,7 @@ CREATE TABLE "events" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "title" TEXT NOT NULL,
     "location" TEXT NOT NULL,
-    "date" DATETIME NOT NULL,
+    "date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "capacity" INTEGER NOT NULL,
     "filled" INTEGER NOT NULL
 );
@@ -15,7 +15,7 @@ CREATE TABLE "students" (
     "cpf" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "events" TEXT NOT NULL
+    "event" TEXT NOT NULL
 );
 
 -- CreateTable
