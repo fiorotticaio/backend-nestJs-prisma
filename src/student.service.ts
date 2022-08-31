@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../database/PrismaService';
+import { PrismaService } from './prisma.service';
 import { Prisma, Student } from '@prisma/client';
 
 @Injectable()
@@ -38,7 +38,7 @@ export class StudentService {
         });
     }
 
-    async updateUser(params: {
+    async updateStudent(params: {
         where: Prisma.StudentWhereUniqueInput;
         data: Prisma.StudentUpdateInput;
     }): Promise<Student> {
@@ -55,56 +55,7 @@ export class StudentService {
         });
     }
 
-    // async create(data: StudentDTO) {
-    //     const studentExists = await this.prisma.student.findFirst({
-    //         where: {
-    //             cpf: data.cpf
-    //         }
-    //     })
-
-    //     if (studentExists) {
-    //         throw new Error('Student already exists');
-    //     }
-
-    //     const student = await this.prisma.student.create({
-    //         data,
-    //     });
-
-    //     return student;
-    // }
-
-    async findAll() {
+    async findAllStudents() {
         return this.prisma.student.findMany();
     }
-
-    // async update(id: Prisma.StudentWhereUniqueInput, data: StudentDTO): Promise<StudentDTO> {
-    //     const studentExists = await this.prisma.student.findUnique({
-    //         where: { id }
-    //     })
-
-    //     if (!studentExists) {
-    //         throw new Error('Student not exists');
-    //     }
-
-    //     return await this.prisma.student.update({
-    //         where: { id },
-    //         data,
-    //     })
-    // }
-
-    // async delete(id: Prisma.StudentWhereUniqueInput) {
-    //     const studentExists = await this.prisma.student.findUnique({
-    //         where: {
-    //             id
-    //         }
-    //     })
-
-    //     if (!studentExists) {
-    //         throw new Error('Student not exists');
-    //     }
-
-    //     return await this.prisma.student.delete({
-    //         where: { id },
-    //     })
-    // }
 }

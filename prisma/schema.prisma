@@ -15,7 +15,8 @@ model Event {
   id        Int      @id @default(autoincrement())
   title      String
   location  String
-  date      DateTime
+  // date String
+  date      DateTime @default(now())
   capacity Int
   filled Int
 
