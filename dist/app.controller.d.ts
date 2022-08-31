@@ -17,6 +17,7 @@ export declare class AppController {
         email: string;
         events: string;
     }): Promise<StudentModel>;
+    getStudentEvents(id: number): Promise<StudentModel>;
     createSchool(schoolData: {
         name: string;
         name_res: string;

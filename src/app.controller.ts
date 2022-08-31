@@ -38,10 +38,10 @@ export class AppController {
     return this.studentService.createStudent(studentData);
   }
 
-  // @Get('student/:id')
-  // async getStudentEvents(@Param('id') id: number): Promise<StudentModel> {
-  //   return this.studentService.getStudentEvents(id);
-  // }
+  @Get('student/:id')
+  async getStudentEvents(@Param('id') id: number): Promise<StudentModel> {
+    return this.studentService.getStudentEvents(id);
+  }
     
 
   /*=== Schools ===*/

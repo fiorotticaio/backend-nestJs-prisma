@@ -12,6 +12,7 @@ export declare class StudentService {
         orderBy?: Prisma.StudentOrderByWithRelationInput;
     }): Promise<Student[]>;
     createStudent(data: Prisma.StudentCreateInput): Promise<Student>;
+    getStudentEvents(studentId: number): Promise<Student>;
     updateStudent(params: {
         where: Prisma.StudentWhereUniqueInput;
         data: Prisma.StudentUpdateInput;

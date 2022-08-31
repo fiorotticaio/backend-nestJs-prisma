@@ -36,6 +36,12 @@ let StudentService = class StudentService {
             data,
         });
     }
+    async getStudentEvents(studentId) {
+        return this.prisma.student.findUnique({
+            where: { id: Number(studentId) },
+            include: { events: true },
+        });
+    }
     async updateStudent(params) {
         const { where, data } = params;
         return this.prisma.student.update({

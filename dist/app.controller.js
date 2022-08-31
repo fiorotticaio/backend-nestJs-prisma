@@ -31,6 +31,9 @@ let AppController = class AppController {
     async createStudent(studentData) {
         return this.studentService.createStudent(studentData);
     }
+    async getStudentEvents(id) {
+        return this.studentService.getStudentEvents(id);
+    }
     async createSchool(schoolData) {
         return this.schoolService.createSchool(schoolData);
     }
@@ -51,6 +54,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "createStudent", null);
+__decorate([
+    (0, common_1.Get)('student/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "getStudentEvents", null);
 __decorate([
     (0, common_1.Post)('school'),
     __param(0, (0, common_1.Body)()),
